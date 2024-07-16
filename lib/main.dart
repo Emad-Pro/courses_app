@@ -10,11 +10,11 @@ import 'core/get_It/service_locator.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   ServiceLacator().init();
-  runApp(DevicePreview(builder: (context) => const MyApp()));
+  runApp(DevicePreview(builder: (context) => MyApp()));
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+  MyApp({super.key});
 
   @override
   Widget build(BuildContext context) {

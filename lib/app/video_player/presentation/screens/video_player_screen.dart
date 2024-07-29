@@ -14,9 +14,11 @@ class VideoPlayerScreen extends StatelessWidget {
           "https://flutter.github.io/assets-for-api-docs/assets/videos/bee.mp4"),
       child: Scaffold(body: BlocBuilder<VideoPlayerCubit, VideoPlayerState>(
           builder: (context, state) {
+        // print(state.videoPlayerController!.value.position.abs());
+        final cubitPlayer = context.read<VideoPlayerCubit>();
         switch (state.requestState) {
           case RequestState.loading:
-            return const CircularProgressIndicator();
+            return Center(child: const CircularProgressIndicator());
           case RequestState.success:
             return state.videoPlayerController!.value.isInitialized
                 ? Column(
@@ -117,7 +119,8 @@ class VideoPlayerScreen extends StatelessWidget {
                                             vertical: 10.0),
                                         child: Row(
                                           children: [
-                                            const Text("3:01 / 21:22"),
+                                            Text(
+                                                "${cubitPlayer.convertTimeToSecondsUsingRegExp(state.videoPlayerController!.value.position.toString())} / ${cubitPlayer.convertTimeToSecondsUsingRegExp(state.videoPlayerController!.value.position.toString())}"),
                                             const Spacer(),
                                             IconButton(
                                               onPressed: () {},

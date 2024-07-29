@@ -29,7 +29,7 @@ class MyApp extends StatelessWidget {
       ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
-        title: 'Flutter Demo',
+        title: 'Courses App',
         darkTheme: ThemeData.dark(useMaterial3: true)
             .copyWith(brightness: Brightness.dark),
         themeMode: ThemeMode.light,

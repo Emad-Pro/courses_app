@@ -1,5 +1,6 @@
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
+import 'package:flutter/services.dart';
 import 'package:video_player/video_player.dart';
 
 import '../../../../../core/enum/state_value.dart';
@@ -10,7 +11,11 @@ class VideoPlayerCubit extends Cubit<VideoPlayerState> {
   final VideoPlayerController _controller;
 
   VideoPlayerCubit(String videoUrl)
-      : _controller = VideoPlayerController.networkUrl(Uri.parse(videoUrl)),
+      : _controller = VideoPlayerController.asset(
+            "assets/images/Free_Test_Data_15MB_MP4.mp4",
+            videoPlayerOptions: VideoPlayerOptions(
+                webOptions: const VideoPlayerWebOptions(
+                    controls: VideoPlayerWebOptionsControls.enabled()))),
         super(const VideoPlayerState()) {
     _controller.addListener(_listenToChanges);
 
@@ -18,6 +23,7 @@ class VideoPlayerCubit extends Cubit<VideoPlayerState> {
       emit(state.copyWith(
         requestState: RequestState.success,
         videoPlayerController: _controller,
+        totalPosition: _controller.value.duration,
       ));
     });
   }
@@ -26,28 +32,58 @@ class VideoPlayerCubit extends Cubit<VideoPlayerState> {
     if (_controller.value.isCompleted) {
       emit(state.copyWith(
           videoPlayerController: _controller,
+          currentPosition: _controller.value.position + Duration(seconds: 1),
           playbackState: PlaybackState.completed));
     } else if (_controller.value.isPlaying) {
       emit(
         state.copyWith(
             videoPlayerController: _controller,
-            playbackState: PlaybackState.playing),
+            playbackState: PlaybackState.playing,
+            currentPosition: _controller.value.position,
+            totalPosition: _controller.value.duration),
       );
     }
   }
 
   @override
   Future<void> close() {
+    SystemChrome.setPreferredOrientations([
+      DeviceOrientation.portraitUp,
+    ]);
     _controller.dispose();
     return super.close();
   }
 
+  void toggleFullscreen() {
+    emit(state.copyWith(isFullscreen: !state.isFullscreen));
+    if (state.isFullscreen) {
+      SystemChrome.setPreferredOrientations([
+        DeviceOrientation.landscapeLeft,
+        DeviceOrientation.landscapeRight,
+      ]);
+    } else {
+      SystemChrome.setPreferredOrientations([
+        DeviceOrientation.portraitUp,
+      ]);
+    }
+  }
+
+  void toggleVisibiltyIcons() {
+    emit(state.copyWith(isVisibility: !state.isVisibility));
+  }
+
   void onPlay() {
-    _controller.play();
-    emit(state.copyWith(
-      playbackState: PlaybackState.playing,
-      videoPlayerController: _controller,
-    ));
+    _controller.play().then((onValue) {
+      emit(state.copyWith(
+        playbackState: PlaybackState.playing,
+        videoPlayerController: _controller,
+      ));
+      Future.delayed(const Duration(seconds: 2)).then((onValue) {
+        if (state.playbackState != PlaybackState.paused) {
+          emit(state.copyWith(isVisibility: !state.isVisibility));
+        }
+      });
+    });
   }
 
   void onPause() {
@@ -59,23 +95,7 @@ class VideoPlayerCubit extends Cubit<VideoPlayerState> {
   }
 
   void onSeek(Duration position) {
-    _controller.position;
+    _controller.seekTo(position);
     emit(state.copyWith(videoPlayerController: _controller));
-  }
-
-  String convertTimeToSecondsUsingRegExp(String timeString) {
-    // Split the time string into hours, minutes, seconds, and milliseconds
-    final parts = timeString.split(':');
-    final secondsPart = parts[2].split('.');
-
-    // Convert seconds and milliseconds to a double
-    final seconds =
-        double.parse(secondsPart[0]) + double.parse(secondsPart[1]) / 1000;
-
-    // Truncate seconds to an integer
-    final truncatedSeconds = seconds.toInt();
-
-    // Format the time back to the desired format
-    return '${parts[0]}:${parts[1]}:${truncatedSeconds.toString().padLeft(2, '0')}';
   }
 }

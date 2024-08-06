@@ -1,7 +1,7 @@
 import 'package:bloc/bloc.dart';
 import 'package:courses_app/app/main/layouts/courses_layout/presentation/screens/courses_screen.dart';
 import 'package:courses_app/app/main/layouts/home_layout/presentation/screens/home_screen.dart';
-import 'package:courses_app/app/main/layouts/message_layout/presentation/controller/message_screen.dart';
+import 'package:courses_app/app/main/layouts/message_layout/presentation/screens/message_screen.dart';
 import 'package:courses_app/app/main/layouts/profile_layout/presentation/screens/profile_screen.dart';
 import 'package:courses_app/app/main/layouts/saved_layout/presentation/screens/saved_screen.dart';
 import 'package:equatable/equatable.dart';

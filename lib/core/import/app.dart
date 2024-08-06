@@ -78,7 +78,7 @@ export '../../app/main/layouts/home_layout/presentation/widget/home_header/home_
 export '../../app/main/layouts/home_layout/presentation/widget/home_header/home_header_title_and_sub_title_widget.dart';
 export '../../app/main/layouts/home_layout/presentation/widget/home_header/home_header_title_and_subtitle_and_actions_widget.dart';
 export '../../app/main/layouts/home_layout/presentation/widget/home_header/home_header_widgets.dart';
-export '../../app/main/layouts/message_layout/presentation/controller/message_screen.dart';
+export '../../app/main/layouts/message_layout/presentation/screens/message_screen.dart';
 export '../../app/main/layouts/profile_layout/presentation/screens/profile_screen.dart';
 export '../../app/main/layouts/saved_layout/presentation/screens/saved_screen.dart';
 export '../../app/main/presentation/controller/main_cubit.dart';

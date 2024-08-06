@@ -26,9 +26,10 @@ dependencies:
   video_player: ^2.9.1
   flutter_slidable: ^3.1.0
   audio_video_progress_bar: ^2.0.3
-
-
-
+  flutter_markdown:
+  flutter_parsed_text:
+  intl: 
+  url_launcher: 
 
 dev_dependencies:
   flutter_test:
@@ -50,3 +51,5 @@ flutter:
     - assets/svg_icons/courses_details/
     - assets/svg_icons/search/
     - assets/svg_icons/video_controller/
+    - assets/svg_icons/chat/
+    - assets/

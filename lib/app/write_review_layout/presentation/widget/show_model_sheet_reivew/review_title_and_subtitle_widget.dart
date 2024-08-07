@@ -1,7 +1,7 @@
-import '../../../../../../core/import/app.dart';
+import 'package:courses_app/core/import/app.dart';
 
-class MyCoursesDeleteShowModelTitleSubtitleWidget extends StatelessWidget {
-  const MyCoursesDeleteShowModelTitleSubtitleWidget({
+class ReviewTitleAndSubTitleWidget extends StatelessWidget {
+  const ReviewTitleAndSubTitleWidget({
     super.key,
   });
 
@@ -12,18 +12,18 @@ class MyCoursesDeleteShowModelTitleSubtitleWidget extends StatelessWidget {
       child: Column(
         children: [
           Text(
-            "Are You Sure Want\n to Delete this Course?",
+            "Thanks For Your\n Feedback",
             textAlign: TextAlign.center,
             style: TextStyle(
-                fontSize: getResponsiveFontSize(context, fontSize: 25),
-                fontWeight: FontWeight.w600),
+                fontSize: getResponsiveFontSize(context, fontSize: 30),
+                fontWeight: FontWeight.bold),
           ),
           Padding(
             padding: const EdgeInsets.symmetric(vertical: 15.0),
             child: Column(
               children: [
                 Text(
-                  "You Stilll can redownload\n again without payment",
+                  "Your feedback meabs a lot for the rating and improvement for our course",
                   textAlign: TextAlign.center,
                   style: TextStyle(
                       fontSize: getResponsiveFontSize(context, fontSize: 18),

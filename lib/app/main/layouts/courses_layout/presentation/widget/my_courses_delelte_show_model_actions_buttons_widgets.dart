@@ -8,28 +8,35 @@ class MyCoursesDeleteShowModelActionsButtonsWidgets extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Row(
-      crossAxisAlignment: CrossAxisAlignment.center,
-      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+    return Column(
       children: [
-        Expanded(
-          child: CustomButtonSelectionWidget(
-            isSelected: false,
-            title: "Cancel",
-            onTap: () {
-              Navigator.pop(context);
-            },
-          ),
+        Row(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Expanded(
+              child: CustomButtonSelectionWidget(
+                isSelected: false,
+                title: "Cancel",
+                onTap: () {
+                  Navigator.pop(context);
+                },
+              ),
+            ),
+            Expanded(
+              child: CustomButtonSelectionWidget(
+                isSelected: true,
+                color: Colors.red[900],
+                title: "Delete",
+                onTap: () {
+                  Navigator.pop(context);
+                },
+              ),
+            ),
+          ],
         ),
-        Expanded(
-          child: CustomButtonSelectionWidget(
-            isSelected: true,
-            color: Colors.red[900],
-            title: "Delete",
-            onTap: () {
-              Navigator.pop(context);
-            },
-          ),
+        SizedBox(
+          height: 20,
         ),
       ],
     );

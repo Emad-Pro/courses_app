@@ -16,6 +16,8 @@ class MyCoursesDeleteShowModelIconWidget extends StatelessWidget {
             padding: const EdgeInsets.all(10.0),
             child: SvgPicture.asset(
               "assets/svg_icons/main/trash.svg",
+              width: 40,
+              height: 40,
               colorFilter: const ColorFilter.mode(Colors.red, BlendMode.srcIn),
             ),
           )),

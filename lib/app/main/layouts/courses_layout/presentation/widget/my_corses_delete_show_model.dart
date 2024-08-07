@@ -16,6 +16,7 @@ class MyCoursesDeleteShowModel extends StatelessWidget {
         child: const Column(children: [
           MyCoursesDeleteShowModelIconWidget(),
           MyCoursesDeleteShowModelTitleSubtitleWidget(),
+          Spacer(),
           MyCoursesDeleteShowModelActionsButtonsWidgets()
         ]));
   }

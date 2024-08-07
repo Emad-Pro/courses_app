@@ -4,12 +4,14 @@ class ReviewButtonWidget extends StatelessWidget {
   const ReviewButtonWidget(
       {super.key,
       this.checkValue = false,
+      this.textColor,
       required this.title,
       required this.onTap});
 
   final bool checkValue;
   final String title;
   final void Function()? onTap;
+  final Color? textColor;
   @override
   Widget build(BuildContext context) {
     return Expanded(
@@ -22,7 +24,11 @@ class ReviewButtonWidget extends StatelessWidget {
               color: checkValue
                   ? Theme.of(context).colorScheme.primary
                   : Theme.of(context).colorScheme.onSurface.withOpacity(0.1)),
-          child: Center(child: Text(title)),
+          child: Center(
+              child: Text(
+            title,
+            style: TextStyle(color: textColor),
+          )),
         ),
       ),
     );

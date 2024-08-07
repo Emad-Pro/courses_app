@@ -15,6 +15,7 @@ class CustomButtonSelectionWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
+      height: 50,
       margin: const EdgeInsets.symmetric(horizontal: 5),
       child: InkWell(
         onTap: onTap,
@@ -25,17 +26,19 @@ class CustomButtonSelectionWidget extends StatelessWidget {
                   ? color ?? Theme.of(context).colorScheme.primary
                   : Theme.of(context).colorScheme.onSurface.withOpacity(0.03),
               borderRadius: BorderRadius.circular(5)),
-          child: Text(
-            title,
-            textAlign: TextAlign.center,
-            style: TextStyle(
-                fontSize: getResponsiveFontSize(context, fontSize: 18),
-                //   fontWeight: FontWeight.w500,
-                color: isSelected
-                    ? color != null
-                        ? Colors.white
-                        : Theme.of(context).colorScheme.surface
-                    : Theme.of(context).colorScheme.onSurface),
+          child: Center(
+            child: Text(
+              title,
+              textAlign: TextAlign.center,
+              style: TextStyle(
+                  fontSize: getResponsiveFontSize(context, fontSize: 18),
+                  //   fontWeight: FontWeight.w500,
+                  color: isSelected
+                      ? color != null
+                          ? Colors.white
+                          : Theme.of(context).colorScheme.surface
+                      : Theme.of(context).colorScheme.onSurface),
+            ),
           ),
         ),
       ),

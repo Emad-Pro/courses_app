@@ -36,7 +36,7 @@ class MyApp extends StatelessWidget {
         title: 'Courses App',
         darkTheme: ThemeData.dark(useMaterial3: true)
             .copyWith(brightness: Brightness.dark),
-        themeMode: ThemeMode.dark,
+        themeMode: ThemeMode.light,
         theme: ThemeData.light(useMaterial3: true)
             .copyWith(brightness: Brightness.light),
         home: const MainScreen(),

@@ -11,6 +11,7 @@ class MessageSearchTextFormFiledWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return SliverToBoxAdapter(
       child: Container(
+          margin: EdgeInsets.only(bottom: 15),
           decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(8),
               color: Theme.of(context).colorScheme.onSurface.withOpacity(0.07)),

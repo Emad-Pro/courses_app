@@ -15,7 +15,9 @@ class ChatAppBarWidget extends StatelessWidget {
         Container(
           margin: const EdgeInsets.symmetric(horizontal: 10),
           child: IconButton(
-            onPressed: () {},
+            onPressed: () {
+             
+            },
             icon: CustomSvgPictrue(
                 colorFilter: ColorFilter.mode(theme.onSurface, BlendMode.srcIn),
                 imagePath: "assets/svg_icons/chat/meue.svg"),
@@ -25,7 +27,9 @@ class ChatAppBarWidget extends StatelessWidget {
       title: Row(
         children: [
           IconButton(
-            onPressed: () {},
+            onPressed: () {
+              Navigator.pop(context);
+            },
             icon: CustomSvgPictrue(
                 colorFilter: ColorFilter.mode(theme.onSurface, BlendMode.srcIn),
                 imagePath: "assets/svg_icons/courses_details/arrow_left.svg"),

@@ -1,13 +1,14 @@
 import 'package:get_it/get_it.dart';
 
 import '../../app/main/layouts/home_layout/presentation/controller/home_cubit.dart';
+import '../../app/main/layouts/profile_layout/presentation/controller/cubit/profile_cubit.dart';
 
 final getIt = GetIt.instance;
 
 class ServiceLacator {
   void init() {
     getIt.registerLazySingleton(() => HomeCubit());
-
+    getIt.registerLazySingleton(() => ProfileCubit());
     /*  getIt.registerFactory(() => LanguageCacheHelper());
 
     

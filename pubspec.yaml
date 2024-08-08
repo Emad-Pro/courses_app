@@ -31,6 +31,7 @@ dependencies:
   intl: 
   url_launcher: 
   flutter_rating_bar: ^4.0.1
+  shared_preferences: ^2.3.1
 
 dev_dependencies:
   flutter_test:
@@ -53,4 +54,5 @@ flutter:
     - assets/svg_icons/search/
     - assets/svg_icons/video_controller/
     - assets/svg_icons/chat/
+    - assets/svg_icons/profile/
     - assets/

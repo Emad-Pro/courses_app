@@ -11,3 +11,16 @@ class CustomSvgImage extends StatelessWidget {
     );
   }
 }
+
+class CustomSvgWithColor extends StatelessWidget {
+  const CustomSvgWithColor({super.key, required this.imagePath});
+  final String imagePath;
+  @override
+  Widget build(BuildContext context) {
+    return SvgPicture.asset(
+      imagePath,
+      colorFilter: ColorFilter.mode(
+          Theme.of(context).colorScheme.onSurface, BlendMode.srcIn),
+    );
+  }
+}
